@@ -95,6 +95,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <li><a href="{{route('admin.showCategory')}}">Liet ke danh muc</a></li>
                     </ul>
                 </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-book"></i>
+                        <span>thuong hieu san pham</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="{{route('admin.addBrand')}}">Them Thuong hieu</a></li>
+                        <li><a href="{{route('admin.showBrand')}}">Liet ke thuong hieu</a></li>
+                    </ul>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-book"></i>
+                        <span>san pham</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="{{route('admin.addProduct')}}">Them san pham</a></li>
+                        <li><a href="{{route('admin.showProduct')}}">Liet ke san pham</a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
         <!-- sidebar menu end-->

@@ -35,12 +35,12 @@ class AdminController extends Controller
                 'password.max' => 'k qua 20 ki tu'
             ]
         );
-        $email = Admin::where('email', $request->email)->first();
-        if ($email) {
-            if (Hash::check($request->password, $email['password'])) {
-                Session::put('name', $email->name);
-                Session::put('email',$email->email);
-                Session::put('gender',$email->gender);
+        $checkLogin = Admin::where('email', $request->email)->first();
+        if ($checkLogin) {
+            if (Hash::check($request->password, $checkLogin['password'])) {
+//                Session::put('name', $email->name);
+//                Session::put('email',$email->email);
+//                Session::put('gender',$email->gender);
                 return redirect()->route('admin.home');
             } else {
                 Session::put('errors', 'dang nhap k thanh cong do sai password');

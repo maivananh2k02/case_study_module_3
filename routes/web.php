@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,3 +42,24 @@ Route::get('/admin/show-category',[CategoryController::class,'showCategory'])->n
 Route::get('/edit/{id}',[CategoryController::class,'showFileUpdate']);
 Route::post('/update/{id}',[CategoryController::class,'update'])->name('edit');
 Route::get('/delete/{id}',[CategoryController::class,'delete']);
+
+//brand
+Route::get('/admin/add-brand',[BrandController::class,'addBrand'])->name('admin.addBrand');
+Route::post('/admin/save-brand',[BrandController::class,'saveBrand'])->name('admin.saveBrand');
+Route::get('/un_brand_action/{id}',[BrandController::class,'un_action']);
+Route::get('/brand_action/{id}',[BrandController::class,'action']);
+Route::get('/admin/show-brand',[BrandController::class,'showBrand'])->name('admin.showBrand');
+Route::get('/brand_edit/{id}',[BrandController::class,'showFileUpdate']);
+Route::post('/brand_update/{id}',[BrandController::class,'update'])->name('edit');
+Route::get('/brand_delete/{id}',[BrandController::class,'delete']);
+
+//product
+
+Route::get('/admin/add-product',[ProductController::class,'addProduct'])->name('admin.addProduct');
+Route::post('/admin/save-product',[ProductController::class,'saveProduct'])->name('admin.saveProduct');
+Route::get('/un_product_action/{id}',[ProductController::class,'un_action']);
+Route::get('/product_action/{id}',[ProductController::class,'action']);
+Route::get('/admin/show-product',[ProductController::class,'showProduct'])->name('admin.showProduct');
+Route::get('/product_edit/{id}',[ProductController::class,'showFileUpdate']);
+Route::post('/product_update/{id}',[ProductController::class,'update'])->name('edit');
+Route::get('/product_delete/{id}',[ProductController::class,'delete']);

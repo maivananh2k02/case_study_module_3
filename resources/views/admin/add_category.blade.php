@@ -29,6 +29,8 @@
                             </div>
 
                             <button type="submit" class="btn btn-info">them</button>
+                            <button class="btn btn-danger" onclick="window.history.go(-1); return false;">Hủy</button>
+
                         </form>
                     </div>
                 </div>

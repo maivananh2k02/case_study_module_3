@@ -28,7 +28,7 @@
                 <ul class="dropdown-menu extended logout">
                     <li><a href="/admin/proFile"><i class=" fa fa-suitcase"></i>Profile</a></li>
                     <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
-                    <li><a href="/admin"><i class="fa fa-key"></i> Log Out</a></li>
+                    <li><a href="{{route('admin.logOut')}}"><i class="fa fa-key"></i> Log Out</a></li>
                 </ul>
             </li>
         </ul>

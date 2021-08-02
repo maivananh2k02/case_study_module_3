@@ -46,23 +46,23 @@
                         <tr>
                             <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label>
                             </td>
-                            <td>{{$item->name}}</td>
+                            <td>{{$item->name_category}}</td>
                             <td><span class="text-ellipsis">
-                                @if($item->status==0)
-                                        <a href="{{'/un_action/'.$item->id}}"><p
+                                @if($item->status_category==0)
+                                        <a href="{{'/un_action/'.$item->id_category}}"><p
                                                 style="text-align: center;font-size: 15px;color: white;background-color: red;border-radius: 25%;width: 50px">An</p></a>
                                     @else
-                                        <a href="{{'/action/'.$item->id}}"><p
+                                        <a href="{{'/action/'.$item->id_category}}"><p
                                                 style="text-align: center;font-size: 15px;color: white;background-color: green;border-radius: 25%;width: 50px">Hien</p></a>
                                     @endif
                                 </span>
                             </td>
                             <td><span class="text-ellipsis">Ngay them </span></td>
                             <td>
-                                <a href="{{'/edit/'.$item->id}}" class="active" ui-toggle-class="">
+                                <a href="{{'/edit/'.$item->id_category}}" class="active" ui-toggle-class="">
                                     <i class="fa fa-pencil-square text-success text-active" style="font-size: 20px"></i>
                                 </a>
-                                <a href="{{'/delete/'.$item->id}}" class="active" ui-toggle-class="" onclick="confirm('are you sure?')">
+                                <a href="{{'/delete/'.$item->id_category}}" class="active" ui-toggle-class="" onclick="confirm('are you sure?')">
                                     <i class="fa fa-times text-danger text" style="font-size: 20px"></i>
                                 </a>
                             </td>
@@ -71,24 +71,6 @@
                     </tbody>
                 </table>
             </div>
-            <footer class="panel-footer">
-                <div class="row">
-
-                    <div class="col-sm-5 text-center">
-                        <small class="text-muted inline m-t-sm m-b-sm">showing 20-30 of 50 items</small>
-                    </div>
-                    <div class="col-sm-7 text-right text-center-xs">
-                        <ul class="pagination pagination-sm m-t-none m-b-none">
-                            <li><a href=""><i class="fa fa-chevron-left"></i></a></li>
-                            <li><a href="">1</a></li>
-                            <li><a href="">2</a></li>
-                            <li><a href="">3</a></li>
-                            <li><a href="">4</a></li>
-                            <li><a href=""><i class="fa fa-chevron-right"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </footer>
         </div>
     </div>
 @endsection

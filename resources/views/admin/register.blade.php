@@ -50,6 +50,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <input type="submit" value="submit" name="register">
         </form>
         <p>Already Registered.<a href="/admin">Login</a></p>
+
     </div>
 </div>
 <script src="backend/js/bootstrap.js"></script>

@@ -17,11 +17,11 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('pages.home');
-});
 Route::get('/trang-chu', [HomeController::class,'index'])->name('pages.home');
+//danh muc sp
+
+Route::get('/category/{id}',[CategoryController::class,'showCategoryHome']);
+Route::get('/brand/{id}',[CategoryController::class,'showBrandHome']);
 
 
 //backend

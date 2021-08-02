@@ -40,7 +40,7 @@
                                 <label for="exampleInputPassword1">Hien Thi</label>
                                 <select name="category_id" class="form-control input-sm m-bot15">
                                     @foreach($category as $item)
-                                        <option value="{{$item->id}}">{{$item->name}}</option>
+                                        <option value="{{$item->id_category}}">{{$item->name_category}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -48,7 +48,7 @@
                                 <label for="exampleInputPassword1">Hien Thi</label>
                                 <select name="brand_id" class="form-control input-sm m-bot15">
                                     @foreach($brand as $i)
-                                        <option value="{{$i->id}}">{{$i->name}}</option>
+                                        <option value="{{$i->id_brand}}">{{$i->name_brand}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -61,6 +61,8 @@
                             </div>
 
                             <button type="submit" class="btn btn-info">them</button>
+                            <button class="btn btn-danger" onclick="window.history.go(-1); return false;">Hủy</button>
+
                         </form>
                     </div>
                 </div>

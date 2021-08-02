@@ -6,9 +6,10 @@ use App\Models\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
+
 class AdminController extends Controller
 {
-    //
+
     public function index()
     {
         return view('admin.admin_login');
@@ -21,7 +22,6 @@ class AdminController extends Controller
 
     public function login(Request $request): \Illuminate\Http\RedirectResponse
     {
-
         $this->validate($request,
             [
                 'email' => 'required|email',
@@ -38,9 +38,10 @@ class AdminController extends Controller
         $checkLogin = Admin::where('email', $request->email)->first();
         if ($checkLogin) {
             if (Hash::check($request->password, $checkLogin['password'])) {
-//                Session::put('name', $email->name);
-//                Session::put('email',$email->email);
-//                Session::put('gender',$email->gender);
+                Session::put('name', $checkLogin->name);
+                Session::put('email', $checkLogin->email);
+                Session::put('gender', $checkLogin->gender);
+                Session::put('admin_id', $checkLogin->id);
                 return redirect()->route('admin.home');
             } else {
                 Session::put('errors', 'dang nhap k thanh cong do sai password');
@@ -51,6 +52,7 @@ class AdminController extends Controller
             return redirect()->back();
         }
     }
+
 
     public function showRegister()
     {
@@ -87,7 +89,7 @@ class AdminController extends Controller
 
     public function logOut()
     {
-        Session::flush();
+        Session::get('admin_id', null);
         return redirect()->route('admin.login');
     }
 

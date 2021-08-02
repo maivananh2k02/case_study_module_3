@@ -109,4 +109,17 @@ class ProductController extends Controller
         return redirect()->route('admin.showProduct');
     }
 
+    public function detail($id)
+    {
+        $category = Category::where('status_category', '1')->get();
+        $brand = Brand::where('status_brand', '1')->get();
+        $detail_product = Product::join('category_product', 'category_product.id_category', '=', 'Products.category_id')
+            ->join('brands', 'brands.id_brand', '=', 'Products.brand_id')
+            ->where('Products.id', $id)
+            ->get();
+
+        $relatedProducts=Product::where('category_id',$detail_product[0]->category_id)->get();
+//        dd($relatedProducts);
+        return view('pages.product.detail_product', compact('category', 'brand', 'detail_product','relatedProducts'));
+    }
 }

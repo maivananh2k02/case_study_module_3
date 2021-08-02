@@ -90,7 +90,8 @@
                             <div class="brands-name">
                                 <ul class="nav nav-pills nav-stacked">
                                     @foreach($brand as $i)
-                                        <li><a href="{{'/brand/'.$i->id_brand}}"> <span class="pull-right">(50)</span>{{$i->name_brand}}</a></li>
+                                        <li><a href="{{'/brand/'.$i->id_brand}}"> <span
+                                                    class="pull-right">(50)</span>{{$i->name_brand}}</a></li>
                                     @endforeach
                                 </ul>
                             </div>
@@ -106,12 +107,15 @@
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="uploads/product/{{$all->image}}" alt=""/>
+                                            <a href="{{'/detail/'.$all->id}}"><img src="uploads/product/{{$all->image}}" alt=""/></a>
                                             <h2>{{number_format($all->price).' VND'}}</h2>
                                             <p>{{$all->name}}</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i
                                                     class="fa fa-shopping-cart"></i>Add
                                                 to cart</a>
+                                            <a class="beta-btn primary"
+                                               href="{{'/detail/'.$all->id}}">Details <i
+                                                    class="fa fa-chevron-right"></i></a>
                                         </div>
                                     </div>
                                     <div class="choose">

@@ -90,7 +90,8 @@
                             <div class="brands-name">
                                 <ul class="nav nav-pills nav-stacked">
                                     @foreach($brand as $i)
-                                        <li><a href="{{'/brand/'.$i->id_brand}}"> <span class="pull-right">(50)</span>{{$i->name_brand}}</a></li>
+                                        <li><a href="{{'/brand/'.$i->id_brand}}"> <span
+                                                    class="pull-right">(50)</span>{{$i->name_brand}}</a></li>
                                     @endforeach
                                 </ul>
                             </div>
@@ -100,7 +101,7 @@
 
                 <div class="col-sm-9 padding-right">
                     <div class="features_items"><!--features_items-->
-                        <h2 class="title text-center">san pham moi</h2>
+                        <h2 class="title text-center">{{$brand_name->name_brand}}</h2>
                         @foreach($brandById as $all)
                             <div class="col-sm-4">
                                 <div class="product-image-wrapper">
@@ -112,6 +113,9 @@
                                             <a href="#" class="btn btn-default add-to-cart"><i
                                                     class="fa fa-shopping-cart"></i>Add
                                                 to cart</a>
+                                            <a class="beta-btn primary"
+                                               href="#">Details <i
+                                                    class="fa fa-chevron-right"></i></a>
                                         </div>
                                     </div>
                                     <div class="choose">

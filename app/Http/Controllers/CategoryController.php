@@ -81,7 +81,8 @@ class CategoryController extends Controller
         $categoryById=Product::join('category_product', 'category_product.id_category', '=', 'Products.category_id')
             ->where('Products.category_id',$id)
             ->get();
-        return view('pages.show_category',compact('category','brand','categoryById'));
+        $category_name=Category::where('id_category',$id)->first();
+        return view('pages.show_category',compact('category','brand','categoryById','category_name'));
     }
     public function showBrandHome($id)
     {
@@ -90,6 +91,9 @@ class CategoryController extends Controller
         $brandById=Product::join('brands', 'brands.id_brand', '=', 'Products.brand_id')
             ->where('Products.brand_id',$id)
             ->get();
-        return view('pages.show_brand',compact('category','brand','brandById'));
+
+        $brand_name=Brand::where('id_brand',$id)->first();
+
+        return view('pages.show_brand',compact('category','brand','brandById','brand_name'));
     }
 }

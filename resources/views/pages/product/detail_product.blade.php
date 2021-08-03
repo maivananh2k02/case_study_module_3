@@ -61,19 +61,18 @@
                             </div>
                             <div class="col-sm-7">
                                 <div class="product-information"><!--/product-information-->
-                                    <img src="images/product-details/new.jpg" class="newarrival" alt=""/>
-                                    <h2>{{$item->name}}</h2>
-                                    <h4>ID: {{$item->id}}</h4>
-                                    <form action="/save-cart" method="post">
+                                    <form>
                                         @csrf
-                                        <span>
-									<span>Gia tien:{{number_format($item->price)}} VND</span><br>
-									<label>Quantity:</label>
-									<input type="number" name="quantity" min="1" value="1"/>
-									<input type="hidden" name="product_id_hidden" value="{{$item->id}}"/>
-									<button type="submit" class="btn btn-fefault cart">
-										<i class="fa fa-shopping-cart"></i>Add to cart
-									</button>
+                                        <input type="hidden" class="cart_product_id_{{$item->id}}" value="{{$item->id}}">
+                                        <input type="hidden" class="cart_product_name_{{$item->id}}" value="{{$item->name}}">
+                                        <input type="hidden" class="cart_product_image_{{$item->id}}" value="{{$item->image}}">
+                                        <input type="hidden" class="cart_product_price_{{$item->id}}" value="{{$item->price}}">
+                                        <input type="hidden" class="cart_product_qty_{{$item->id}}" value="1">
+                                        <h2>{{$item->name}}</h2>
+                                        <p>{{number_format($item->price).' VND'}}</p>
+                                        <button type="button" class="btn btn-success add-to-cart" data-id="{{$item->id}}" >add cart
+                                        </button>
+                                    </form>
 								</span>
                                     </form>
                                     <p><b>Tinh trang:</b> Con hangk</p>

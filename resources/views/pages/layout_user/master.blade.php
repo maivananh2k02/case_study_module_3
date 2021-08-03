@@ -7,6 +7,7 @@
     <meta name="author" content="">
     <title>Home | E-Shopper</title>
     <base href="{{asset('')}}">
+    <link href="frontend/css/sweetalert.css" rel="stylesheet">
     <link href="frontend/css/bootstrap.min.css" rel="stylesheet">
     <link href="frontend/css/font-awesome.min.css" rel="stylesheet">
     <link href="frontend/css/prettyPhoto.css" rel="stylesheet">
@@ -39,5 +40,51 @@
 <script src="frontend/js/price-range.js"></script>
 <script src="frontend/js/jquery.prettyPhoto.js"></script>
 <script src="frontend/js/main.js"></script>
+<script src="frontend/js/sweetalert.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.add-to-cart').click(function () {
+            let id = $(this).data('id');
+            let cart_product_id = $('.cart_product_id_' + id).val();
+            let cart_product_name = $('.cart_product_name_' + id).val();
+            let cart_product_image = $('.cart_product_image_' + id).val();
+            let cart_product_price = $('.cart_product_price_' + id).val();
+            let cart_product_qty = $('.cart_product_qty_' + id).val();
+            let _token = $('input[name="_token"]').val();
+            $.ajax({
+                url: '{{url('/add-cart-ajax')}}',
+                method: 'POST',
+                data: {
+                    cart_product_id: cart_product_id,
+                    cart_product_name: cart_product_name,
+                    cart_product_image: cart_product_image,
+                    cart_product_price: cart_product_price,
+                    cart_product_qty: cart_product_qty,
+                    _token: _token
+                },
+                success: function (data) {
+                    swal({
+                            title: "Da them san pham vao gio hang cua ban",
+                            // text: "You will not be able to recover this imaginary file!",
+                            type: "success",
+                            confirmButtonClass: "btn-success",
+                            confirmButtonText: "Den gio hang",
+                            cancelButtonText: "Tiep tuc di sam",
+                            showCancelButton: true,
+                            closeOnConfirm: false,
+                            showLoaderOnConfirm: true
+                        },
+                        function () {
+                            setTimeout(function () {
+                                window.location.href = "{{url('/show-cart')}}";
+                            }, 2000);
+                        });
+
+                }
+
+            });
+        });
+    });
+</script>
 </body>
 </html>

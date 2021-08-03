@@ -67,5 +67,13 @@ Route::post('/product_update/{id}',[ProductController::class,'update'])->name('e
 Route::get('/product_delete/{id}',[ProductController::class,'delete']);
 
 
+
 //cart
-Route::post('/save-cart',[CartController::class,'saveCart']);
+Route::post('/add-cart-ajax',[CartController::class,'add_cart_ajax']);
+Route::get('/show-cart',[CartController::class,'show_cart_ajax']);
+Route::get('/delete_cart/{id}',[CartController::class,'delete_cart']);
+Route::get('/delete_cart_all',[CartController::class,'delete_cart_all'])->name('delete_cart_all');
+Route::post('/update_cart',[CartController::class,'update_cart']);
+
+//coupon
+Route::post('/coupon',[CartController::class,'coupon']);

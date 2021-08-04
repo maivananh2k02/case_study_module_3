@@ -44,8 +44,8 @@ class AdminController extends Controller
                 Session::put('admin_id', $checkLogin->id);
                 return redirect()->route('admin.home');
             } else {
-                Session::put('errors', 'dang nhap k thanh cong do sai password');
-                return redirect()->back();
+
+                return redirect()->back()->with('errors', 'dang nhap k thanh cong do sai password');
             }
         } else {
             Session::put('errors', 'dang nhap k thanh cong do sai email');

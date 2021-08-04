@@ -70,7 +70,7 @@
                                         <input type="hidden" class="cart_product_qty_{{$item->id}}" value="1">
                                         <h2>{{$item->name}}</h2>
                                         <p>{{number_format($item->price).' VND'}}</p>
-                                        <button type="button" class="btn btn-success add-to-cart" data-id="{{$item->id}}" >add cart
+                                        <button type="button" class="btn btn-default add-to-cart" data-id="{{$item->id}}" >add cart
                                         </button>
                                     </form>
 								</span>

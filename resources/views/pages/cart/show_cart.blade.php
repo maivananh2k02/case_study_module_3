@@ -60,6 +60,13 @@
                             </tr {{$result+=$total}}>
                         @endforeach
                         <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>Cart Sub Total <span>{{number_format($result)}}</span></td>
+                        </tr>
+                        <tr>
                             <td><input type="submit" value="cap nhat" class="btn btn-default check_out">
                             </td>
                             <td>
@@ -78,17 +85,15 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="total_area">
-                                <ul>
-                                    <li>Cart Sub Total <span>{{number_format($result+=$total)}}</span></li>
-                                    <li>Thue <span>$2</span></li>
-                                    <li>Shipping Cost <span>Free</span></li>
-                                    <li>Tong sau phat sinh thanh
-                                        toan:<span> {{number_format($result)}}</span></li>
-                                </ul>
-                                <a class="btn btn-default check_out" href="">Check Out</a>
+                                @if(Session::get('customer_email')&&Session::get('customer_password'))
+                                    <a class="btn btn-default check_out" href="/check-out-customer">Thanh toan</a>
+                                @else
+                                    <a class="btn btn-default check_out" href="/check_out">Thanh toan</a>
+                                @endif
                                 <form action="/coupon" method="post">
                                     @csrf
-                                    <input type="text" class="form-control" name="coupon" placeholder="nhap ma giam gia">
+                                    <input type="text" class="form-control" name="coupon"
+                                           placeholder="nhap ma giam gia">
                                     <input type="submit" class="btn btn-default check_coupon" name="coupon"
                                            value="Tinh ma giam gia"></input>
                                 </form>

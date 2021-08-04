@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CheckLogOutController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
@@ -77,3 +78,13 @@ Route::post('/update_cart',[CartController::class,'update_cart']);
 
 //coupon
 Route::post('/coupon',[CartController::class,'coupon']);
+
+
+//checkout
+
+Route::get('/check_out',[CheckLogOutController::class,'login_checkOut'])->name('login_check_in');
+Route::post('/add-customer',[CheckLogOutController::class,'add_customer'])->name('add_customer');
+Route::get('/check-out-customer',[CheckLogOutController::class,'check_out_customer'])->name('check_out_customer');
+Route::post('/save-check-out-customer',[CheckLogOutController::class,'save_check_out_customer'])->name('save_check_out_customer');
+Route::post('/customer-login',[CheckLogOutController::class,'customer_login'])->name('customer_login');
+Route::get('/logout-customer',[CheckLogOutController::class,'log_out_customer']);

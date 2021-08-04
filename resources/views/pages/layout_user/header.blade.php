@@ -59,11 +59,14 @@
                 <div class="col-sm-8">
                     <div class="shop-menu pull-right">
                         <ul class="nav navbar-nav">
-                            <li><a href=""><i class="fa fa-user"></i> Account</a></li>
-                            <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
-                            <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-                            <li><a href="/show-cart"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-                            <li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
+                            <li><a href="#"><i class="fa fa-star"></i> yeu thich</a></li>
+                            <li><a href="/check_out"><i class="fa fa-crosshairs"></i>Thanh toan</a></li>
+                            <li><a href="/show-cart"><i class="fa fa-shopping-cart"></i> gio hang</a></li>
+                            @if(Session::get('customer_email')&&Session::get('customer_password'))
+                                <li><a href="/logout-customer"><i class="fa fa-lock"></i> dang xuat</a></li>
+                            @else
+                                <li><a href="{{route('login_check_in')}}"><i class="fa fa-lock"></i> dang nhap</a></li>
+                            @endif
                         </ul>
                     </div>
                 </div>

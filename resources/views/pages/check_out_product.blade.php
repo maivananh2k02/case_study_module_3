@@ -20,7 +20,7 @@
                             <p>THONG TIN NHAN HANG</p>
 
                             <div class="form-two">
-                                <form action="{{route('save_check_out_customer')}}" method="post">
+                                <form action="{{route('payment')}}" method="post">
                                     @csrf
                                     <input type="text" name="name" placeholder="Ho va ten ">
                                     <input type="text" name="email" placeholder="Email....">
@@ -54,37 +54,38 @@
                         </thead>
                         <tbody>
                         {{--                    {{dd(Session::get('cart'))}}--}}
-                        @if(Session::get('cart'))
-                            @php
-                                $result=0;
-                            @endphp
+                        @if(Session::get('customer_email')&&Session::get('customer_password'))
+                            @if(Session::get('cart'))
+                                @php
+                                    $result=0;
+                                @endphp
 
-                            @foreach(Session::get('cart') as $key=>$value)
+                                @foreach(Session::get('cart') as $key=>$value)
 
-                                <tr>
-                                    <td class="cart_product">
-                                        <img src="uploads/product/{{$value['image']}}" alt="" width="90px">
-                                    </td>
-                                    <td class="cart_description">
-                                        <h4><a href=""></a>{{$value['name']}}</h4>
-                                        <p>ID: {{$value['id']}}</p>
-                                    </td>
-                                    <td class="cart_price">
-                                        <p>{{number_format($value['price'])}} VND</p>
-                                    </td>
-                                    <td class="cart_quantity">
-                                        <div class="cart_quantity_button">
+                                    <tr>
+                                        <td class="cart_product">
+                                            <img src="uploads/product/{{$value['image']}}" alt="" width="90px">
+                                        </td>
+                                        <td class="cart_description">
+                                            <h4><a href=""></a>{{$value['name']}}</h4>
+                                            <p>ID: {{$value['id']}}</p>
+                                        </td>
+                                        <td class="cart_price">
+                                            <p>{{number_format($value['price'])}} VND</p>
+                                        </td>
+                                        <td class="cart_quantity">
+                                            <div class="cart_quantity_button">
 
-                                            <input class="cart_quantity" type="number" min="1"
-                                                   name="{{$value['session_id']}}"
-                                                   value="{{$value['qty']}}" disabled>
+                                                <input class="cart_quantity" type="number" min="1"
+                                                       name="{{$value['session_id']}}"
+                                                       value="{{$value['qty']}}" disabled>
 
-                                        </div>
-                                    </td>
-                                    <td class="cart_total">
-                                        <p class="cart_total_price">{{number_format($total=$value['price']*$value['qty'])}}</p>
-                                    </td>
-                                </tr {{$result+=$total}}>
+                                            </div>
+                                        </td>
+                                        <td class="cart_total">
+                                            <p class="cart_total_price">{{number_format($total=$value['price']*$value['qty'])}}</p>
+                                        </td>
+                                    </tr {{$result+=$total}}>
                         @endforeach
                     </table>
                 </form>
@@ -118,6 +119,7 @@
                     </div>
                 </section><!--/#do_action-->
                 </tbody>
+                @endif
                 @endif
             </div>
         </div>

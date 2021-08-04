@@ -83,6 +83,8 @@ class CheckLogOutController extends Controller
 
     public function payment()
     {
-
+        $category = Category::where('status_category', '1')->get();
+        $brand = Brand::where('status_brand', '1')->get();
+        return view('pages.payment', compact('category', 'brand'));
     }
 }

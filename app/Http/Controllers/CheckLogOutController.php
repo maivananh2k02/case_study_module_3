@@ -125,10 +125,13 @@ class CheckLogOutController extends Controller
                 OrderDetail::insert($order_detail);
             }
             if ($payment['payment_method'] == 1) {
+                Session::forget('cart');
                 echo 'Thanh toan ATM thanh cong';
             } else if ($payment['payment_method'] == 2) {
+                Session::forget('cart');
                 return view('pages.handCash');
             } else {
+                Session::forget('cart');
                 echo 'the ghi no';
             }
 

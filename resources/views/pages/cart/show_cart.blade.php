@@ -92,13 +92,10 @@
                                 @else
                                     <a class="btn btn-default check_out" href="/check_out">Thanh toan</a>
                                 @endif
-                                <form action="/coupon" method="post">
-                                    @csrf
-                                    <input type="text" class="form-control" name="coupon"
-                                           placeholder="nhap ma giam gia">
-                                    <input type="submit" class="btn btn-default check_coupon" name="coupon"
-                                           value="Tinh ma giam gia"></input>
-                                </form>
+                                @if(isset($result))
+                                {{Session::put('cart_result',$result)}}
+
+                                @endif
                             </div>
                         </div>
                     </div>

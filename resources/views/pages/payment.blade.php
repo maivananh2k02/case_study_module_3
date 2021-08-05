@@ -69,22 +69,18 @@
                                             toan:<span> {{number_format($result)}}</span></li>
                                     </ul>
                                     <h4 style="margin: 40px">Chon hinh thuc thanh toan:</h4>
-                                    <form action="" method="post">
+                                    <form action="{{route('order')}}" method="post">
                                         @csrf
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <input name="payment_option" value="ATM"
+                                        <input name="payment_option" value="1"
                                                type="checkbox"> thanh toan bang ATM
                                         &nbsp;&nbsp;&nbsp;&nbsp;
-                                        <input name="payment_option" value="Tien mat" type="checkbox"> nhan tien mat
+                                        <input name="payment_option" value="2" type="checkbox"> nhan tien mat
                                         &nbsp;&nbsp;&nbsp;&nbsp;
-                                        <input name="payment_option" value="Tin dung" type="checkbox"> nhan qua the ghi
+                                        <input name="payment_option" value="3" type="checkbox"> nhan qua the ghi
                                         no
-                                        <p style="text-align: center"><a class="btn btn-default check_out"
-                                                                         href="/check_out">Thanh toan</a></p>
-                                        <input type="text" class="form-control" name="coupon"
-                                               placeholder="nhap ma giam gia">
-                                        <input type="submit" class="btn btn-default check_coupon" name="coupon"
-                                               value="Tinh ma giam gia"></input>
+
+                                        <input type="submit" class="btn btn-primary" value="dat hang">
                                     </form>
                                 </div>
                             </div>

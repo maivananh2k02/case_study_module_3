@@ -109,17 +109,22 @@
                                         <div class="productinfo text-center">
                                             <form>
                                                 @csrf
-                                                <input type="hidden" class="cart_product_id_{{$all->id}}" value="{{$all->id}}">
-                                                <input type="hidden" class="cart_product_name_{{$all->id}}" value="{{$all->name}}">
-                                                <input type="hidden" class="cart_product_image_{{$all->id}}" value="{{$all->image}}">
-                                                <input type="hidden" class="cart_product_price_{{$all->id}}" value="{{$all->price}}">
+                                                <input type="hidden" class="cart_product_id_{{$all->id}}"
+                                                       value="{{$all->id}}">
+                                                <input type="hidden" class="cart_product_name_{{$all->id}}"
+                                                       value="{{$all->name}}">
+                                                <input type="hidden" class="cart_product_image_{{$all->id}}"
+                                                       value="{{$all->image}}">
+                                                <input type="hidden" class="cart_product_price_{{$all->id}}"
+                                                       value="{{$all->price}}">
                                                 <input type="hidden" class="cart_product_qty_{{$all->id}}" value="1">
                                                 <a href="{{'/detail/'.$all->id}}"><img
                                                         src="uploads/product/{{$all->image}}" alt=""/></a>
                                                 <h2>{{number_format($all->price).' VND'}}</h2>
                                                 <p>{{$all->name}}</p>
-                                                <button type="button" class="btn btn-default add-to-cart" data-id="{{$all->id}}" >add cart
-                                                </button>
+                                                    <button type="button" class="btn btn-default add-to-cart"
+                                                            data-id="{{$all->id}}">add cart
+                                                    </button>
                                             </form>
                                             <a class="beta-btn primary"
                                                href="{{'/detail/'.$all->id}}">Details <i

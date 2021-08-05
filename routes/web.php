@@ -88,4 +88,5 @@ Route::get('/check-out-customer',[CheckLogOutController::class,'check_out_custom
 Route::post('/save-check-out-customer',[CheckLogOutController::class,'save_check_out_customer'])->name('save_check_out_customer');
 Route::post('/customer-login',[CheckLogOutController::class,'customer_login'])->name('customer_login');
 Route::get('/logout-customer',[CheckLogOutController::class,'log_out_customer']);
-Route::post('/payment',[CheckLogOutController::class,'payment'])->name('payment');
+Route::get('/payment',[CheckLogOutController::class,'payment'])->name('payment');
+Route::post('/order',[CheckLogOutController::class,'order'])->name('order');

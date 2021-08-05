@@ -99,17 +99,12 @@ class CartController extends Controller
 
     public function delete_cart_all()
     {
-        $cart=Session::get('cart');
-        if ($cart){
+        $cart = Session::get('cart');
+        if ($cart) {
 //            Session::destroy();
             Session::forget('cart');
             return redirect()->back()->with('message', 'thanh cong');
         }
     }
 
-    public function coupon(Request $request)
-    {
-        $data=$request->all();
-        print_r($data);
-    }
 }

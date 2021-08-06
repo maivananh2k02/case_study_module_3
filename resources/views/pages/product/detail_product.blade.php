@@ -63,17 +63,26 @@
                                 <div class="product-information"><!--/product-information-->
                                     <form>
                                         @csrf
-                                        <input type="hidden" class="cart_product_id_{{$item->id}}" value="{{$item->id}}">
-                                        <input type="hidden" class="cart_product_name_{{$item->id}}" value="{{$item->name}}">
-                                        <input type="hidden" class="cart_product_image_{{$item->id}}" value="{{$item->image}}">
-                                        <input type="hidden" class="cart_product_price_{{$item->id}}" value="{{$item->price}}">
+                                        <input type="hidden" class="cart_product_id_{{$item->id}}"
+                                               value="{{$item->id}}">
+                                        <input type="hidden" class="cart_product_name_{{$item->id}}"
+                                               value="{{$item->name}}">
+                                        <input type="hidden" class="cart_product_image_{{$item->id}}"
+                                               value="{{$item->image}}">
+                                        <input type="hidden" class="cart_product_price_{{$item->id}}"
+                                               value="{{$item->price}}">
                                         <input type="hidden" class="cart_product_qty_{{$item->id}}" value="1">
                                         <h2>{{$item->name}}</h2>
                                         <p>{{number_format($item->price).' VND'}}</p>
-                                        <button type="button" class="btn btn-default add-to-cart" data-id="{{$item->id}}" >add cart
-                                        </button>
+                                        @if(Session::get('customer_email')&&Session::get('customer_password'))
+                                            <button type="button" class="btn btn-primary add-to-cart"
+                                                    data-id="{{$all->id}}">add cart
+                                            </button>
+                                        @else
+                                            <a href="/check_out" class="btn btn-primary">add cart</a>
+                                        @endif
                                     </form>
-								</span>
+                                    </span>
                                     </form>
                                     <p><b>Tinh trang:</b> Con hangk</p>
                                     <p><b>Dieu kien:</b> New</p>

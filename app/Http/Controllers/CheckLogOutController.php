@@ -139,4 +139,16 @@ class CheckLogOutController extends Controller
             return redirect()->back();
         }
     }
+
+    public function manage_order()
+    {
+        $product_order = Order::join('customers', 'customers.customer_id', '=', 'orders.customer_id')
+            ->get();
+        return view('admin.manage_order', compact('product_order'));
+    }
+
+    public function view_order($id)
+    {
+
+    }
 }

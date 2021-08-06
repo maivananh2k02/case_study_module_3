@@ -122,9 +122,13 @@
                                                         src="uploads/product/{{$all->image}}" alt=""/></a>
                                                 <h2>{{number_format($all->price).' VND'}}</h2>
                                                 <p>{{$all->name}}</p>
-                                                    <button type="button" class="btn btn-default add-to-cart"
+                                                @if(Session::get('customer_email')&&Session::get('customer_password'))
+                                                    <button type="button" class="btn btn-primary add-to-cart"
                                                             data-id="{{$all->id}}">add cart
                                                     </button>
+                                                @else
+                                                    <a href="/check_out" class="btn btn-primary">add cart</a>
+                                                @endif
                                             </form>
                                             <a class="beta-btn primary"
                                                href="{{'/detail/'.$all->id}}">Details <i

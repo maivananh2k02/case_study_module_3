@@ -90,3 +90,8 @@ Route::post('/customer-login',[CheckLogOutController::class,'customer_login'])->
 Route::get('/logout-customer',[CheckLogOutController::class,'log_out_customer']);
 Route::get('/payment',[CheckLogOutController::class,'payment'])->name('payment');
 Route::post('/order',[CheckLogOutController::class,'order'])->name('order');
+
+
+//manage_order
+Route::get('/manage-order',[CheckLogOutController::class,'manage_order']);
+Route::get('/view-order/{id}',[CheckLogOutController::class,'view_order']);

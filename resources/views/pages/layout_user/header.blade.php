@@ -61,11 +61,12 @@
                     <div class="shop-menu pull-right">
                         <ul class="nav navbar-nav">
                             <li><a href="#"><i class="fa fa-star"></i> yeu thich</a></li>
-                            <li><a href="/check_out"><i class="fa fa-crosshairs"></i>Thanh toan</a></li>
                             <li><a href="/show-cart"><i class="fa fa-shopping-cart"></i> gio hang</a></li>
                             @if(Session::get('customer_email')&&Session::get('customer_password'))
+                                <li><a href="/payment"><i class="fa fa-crosshairs"></i>Thanh toan</a></li>
                                 <li><a href="/logout-customer"><i class="fa fa-lock"></i> dang xuat</a></li>
                             @else
+                                <li><a href="/check_out"><i class="fa fa-crosshairs"></i>Thanh toan</a></li>
                                 <li><a href="{{route('login_check_in')}}"><i class="fa fa-lock"></i> dang nhap</a></li>
                             @endif
                         </ul>

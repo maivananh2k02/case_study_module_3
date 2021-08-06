@@ -9,14 +9,14 @@
                 <table class="table table-striped b-t b-light">
                     <thead>
                     <tr>
-                        <th>Ten khach hang</th>
+                        <th>ten khach hang</th>
                         <th>sdt</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
-                        <td></td>
-                        <td></td>
+                        <td>{{$view_order['customer_name']}}</td>
+                        <td>{{$view_order['customer_phone']}}</td>
                     </tr>
                     </tbody>
                 </table>
@@ -27,21 +27,22 @@
     <div class="table-agile-info">
         <div class="panel panel-default">
             <div class="panel-heading">
-                Thong tin Shipper
+                Thong tin dia chi nhan hang
             </div>
             <div class="table-responsive">
                 <table class="table table-striped b-t b-light">
                     <thead>
                     <tr>
-                        <th>Ten nguoi van chuyen</th>
-                        <th>Thuoc cog ty van chuyen</th>
-                        <th>SDT</th>
+                        <th>Ten nguoi nhan</th>
+                        <th>Dia chi nhan hang</th>
+                        <th>So dien thoai nhan hang</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
-                        <td></td>
-                        <td></td>
+                        <td>{{$view_order['transport_name']}}</td>
+                        <td>{{$view_order['transport_address']}}</td>
+                        <td>{{$view_order['transport_phone']}}</td>
                     </tr>
                     </tbody>
                 </table>
@@ -66,10 +67,10 @@
                     </thead>
                     <tbody>
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>{{$view_order['product_name']}}</td>
+                        <td>{{$view_order['product_sales_quantity']}}</td>
+                        <td>{{$view_order['product_price']}}</td>
+                        <td>{{$view_order['order_total']}}</td>
                     </tr>
                     </tbody>
                 </table>

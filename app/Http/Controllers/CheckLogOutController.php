@@ -147,14 +147,25 @@ class CheckLogOutController extends Controller
         return view('admin.manage_order', compact('product_order'));
     }
 
-    public function view_order()
+    public function view_order($id)
     {
-        $product_order = Order::join('customers', 'customers.customer_id', '=', 'orders.customer_id')
-            ->join('transports','transports.id_transport','=','orders.transport_id')
-            ->join('order_detail','order_detail.order_id','=','orders.order_id')
-//            ->where('orders.order_id',$id)
+        $view_order = Order::join('customers', 'customers.customer_id', '=', 'orders.customer_id')
+            ->join('transports', 'transports.id_transport', '=', 'orders.transport_id')
+            ->join('order_detail', 'order_detail.order_id', '=', 'orders.order_id')
+            ->where('orders.order_id', $id)
             ->first();
-        return view('admin.view_order',compact('product_order'));
-        dd($product_order);
+        return view('admin.view_order', compact('view_order'));
+        dd($view_order);
     }
+
+    public function deletePayment($id)
+    {
+        Order::join('customers', 'customers.customer_id', '=', 'orders.customer_id')
+            ->join('transports', 'transports.id_transport', '=', 'orders.transport_id')
+            ->join('order_detail', 'order_detail.order_id', '=', 'orders.order_id')
+            ->where('orders.order_id', $id)
+            ->delete();
+        return redirect()->back();
+    }
+
 }

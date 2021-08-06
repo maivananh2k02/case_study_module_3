@@ -95,3 +95,4 @@ Route::post('/order',[CheckLogOutController::class,'order'])->name('order');
 //manage_order
 Route::get('/manage-order',[CheckLogOutController::class,'manage_order']);
 Route::get('/view-order/{id}',[CheckLogOutController::class,'view_order']);
+Route::get('/delete-order/{id}',[CheckLogOutController::class,'deletePayment']);

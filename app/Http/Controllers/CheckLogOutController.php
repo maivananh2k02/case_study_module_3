@@ -40,6 +40,7 @@ class CheckLogOutController extends Controller
 
     public function customer_login(Request $request)
     {
+
         $customer_email = $request->email;
         $customer_password = $request->password;
         $check = Customer::where('customer_email', $customer_email)->first();
@@ -47,6 +48,7 @@ class CheckLogOutController extends Controller
             Session::put('customer_email', $customer_email);
             Session::put('customer_password', $customer_password);
             Session::put('customer_id', $check['customer_id']);
+//            dd($customer_password);
             return redirect()->back()->with('message', 'dang nhap thanh cong');
         } else {
             return redirect()->back();
@@ -155,7 +157,7 @@ class CheckLogOutController extends Controller
             ->where('orders.order_id', $id)
             ->first();
         return view('admin.view_order', compact('view_order'));
-        dd($view_order);
+//        dd($view_order);
     }
 
     public function deletePayment($id)

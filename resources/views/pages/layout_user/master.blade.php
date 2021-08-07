@@ -41,6 +41,7 @@
 <script src="frontend/js/jquery.prettyPhoto.js"></script>
 <script src="frontend/js/main.js"></script>
 <script src="frontend/js/sweetalert.js"></script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <script type="text/javascript">
     $(document).ready(function () {
         $('.add-to-cart').click(function () {

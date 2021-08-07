@@ -5,7 +5,9 @@ use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CheckLogOutController;
+use App\Http\Controllers\ForgetPassword;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -90,9 +92,15 @@ Route::post('/customer-login',[CheckLogOutController::class,'customer_login'])->
 Route::get('/logout-customer',[CheckLogOutController::class,'log_out_customer']);
 Route::get('/payment',[CheckLogOutController::class,'payment'])->name('payment');
 Route::post('/order',[CheckLogOutController::class,'order'])->name('order');
+Route::get('/forget-password',[ForgetPassword::class,'forget_password'])->name('forgetPassword');
+Route::post('/check-password',[ForgetPassword::class,'save_password'])->name('save_password');
+Route::get('/check-password/form-reset',[ForgetPassword::class,'formResetPassword'])->name('formResetPassword');
+Route::post('/check-password/reset',[ForgetPassword::class,'resetPassword'])->name('email_reset_password');
 
 
 //manage_order
 Route::get('/manage-order',[CheckLogOutController::class,'manage_order']);
 Route::get('/view-order/{id}',[CheckLogOutController::class,'view_order']);
 Route::get('/delete-order/{id}',[CheckLogOutController::class,'deletePayment']);
+
+

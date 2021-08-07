@@ -76,13 +76,11 @@
                                         <p>{{number_format($item->price).' VND'}}</p>
                                         @if(Session::get('customer_email')&&Session::get('customer_password'))
                                             <button type="button" class="btn btn-primary add-to-cart"
-                                                    data-id="{{$all->id}}">add cart
+                                                    data-id="{{$item->id}}">add cart
                                             </button>
                                         @else
                                             <a href="/check_out" class="btn btn-primary">add cart</a>
                                         @endif
-                                    </form>
-                                    </span>
                                     </form>
                                     <p><b>Tinh trang:</b> Con hangk</p>
                                     <p><b>Dieu kien:</b> New</p>

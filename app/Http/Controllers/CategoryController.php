@@ -65,6 +65,7 @@ class CategoryController extends Controller
     public function update(Request $request, $id)
     {
         Category::where('id_category', $id)->update(['name_category' => $request->name, 'desc_category' => $request->desc]);
+
         return redirect()->route('admin.showCategory');
     }
 

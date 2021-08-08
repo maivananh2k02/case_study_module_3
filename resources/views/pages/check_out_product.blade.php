@@ -103,7 +103,7 @@
                                         <li>Tong sau phat sinh thanh
                                             toan:<span> {{number_format($result)}}</span></li>
                                     </ul>
-                                    <a class="btn btn-default check_out" href="/check_out">Thanh toan</a>
+{{--                                    <a class="btn btn-default check_out" href="/check_out">Thanh toan</a>--}}
 
                                 </div>
                             </div>

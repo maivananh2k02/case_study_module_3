@@ -53,7 +53,7 @@
                                         </div>
                                     </td>
                                     <td class="cart_total">
-                                        <p class="cart_total_price">{{number_format($total=$value['price']*$value['qty'])}}</p>
+                                        <p class="cart_total_price">{{number_format($total=$value['price']*$value['qty'])}} VND</p>
                                     </td>
                                     <td class="cart_delete">
                                         <a class="cart_quantity_delete" href="{{'/delete_cart/'.$value['session_id']}}"><i
@@ -66,7 +66,7 @@
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                                <td>Cart Sub Total <span>{{number_format($result)}}</span></td>
+                                <td>Cart Sub Total <span>{{number_format($result)}} VND</span></td>
                             </tr>
                             <tr>
                                 <td><input type="submit" value="cap nhat" class="btn btn-default check_out">
@@ -81,7 +81,7 @@
             <section id="do_action">
                 <div class="container">
                     <div class="heading">
-                        <h3>thanh Toan</h3>
+                        <h3>Tien hanh thanh Toan</h3>
                         <p></p>
                     </div>
                     <div class="row">

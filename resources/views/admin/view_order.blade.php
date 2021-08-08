@@ -4,6 +4,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 Thong tin khach hang
+                {{--                {{dd($view_order)}}--}}
             </div>
             <div class="table-responsive">
                 <table class="table table-striped b-t b-light">
@@ -36,6 +37,8 @@
                         <th>Ten nguoi nhan</th>
                         <th>Dia chi nhan hang</th>
                         <th>So dien thoai nhan hang</th>
+                        <th>emai nhan hang</th>
+                        <th>note nhan hang</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -43,6 +46,10 @@
                         <td>{{$view_order['transport_name']}}</td>
                         <td>{{$view_order['transport_address']}}</td>
                         <td>{{$view_order['transport_phone']}}</td>
+                        <td>{{$view_order['transport_email']}}</td>
+                        <td>
+                            <pre>{{$view_order['transport_note']}}</pre>
+                        </td>
                     </tr>
                     </tbody>
                 </table>
@@ -62,15 +69,19 @@
                         <th>Ten san pham</th>
                         <th>so luong</th>
                         <th>gia</th>
-                        <th>Tong tien</th>
                     </tr>
                     </thead>
                     <tbody>
+                    @foreach($detail_product as $value)
+                        {{--                        {{dd($detail_product)}}--}}
+                        <tr>
+                            <td>{{$value->product_name}}</td>
+                            <td>{{$value->product_sales_quantity}}</td>
+                            <td>{{number_format($value->product_price)}} VND</td>
+                        </tr>
+                    @endforeach
                     <tr>
-                        <td>{{$view_order['product_name']}}</td>
-                        <td>{{$view_order['product_sales_quantity']}}</td>
-                        <td>{{$view_order['product_price']}}</td>
-                        <td>{{$view_order['order_total']}}</td>
+                        <th>Tong tien : {{number_format($value->order_total)}} VND</th>
                     </tr>
                     </tbody>
                 </table>

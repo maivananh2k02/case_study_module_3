@@ -156,7 +156,9 @@ class CheckLogOutController extends Controller
             ->join('order_detail', 'order_detail.order_id', '=', 'orders.order_id')
             ->where('orders.order_id', $id)
             ->first();
-        return view('admin.view_order', compact('view_order'));
+        $detail_product = OrderDetail::join('orders', 'orders.order_id', '=', 'order_detail.order_id')
+            ->where('order_detail.order_id', $id)->get();
+        return view('admin.view_order', compact('view_order', 'detail_product'));
 //        dd($view_order);
     }
 

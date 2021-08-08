@@ -30,23 +30,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script src="backend/js/jquery2.0.3.min.js"></script>
 </head>
 <body>
+@if(Session::has('success_logOut'))
+    <span class="alert alert-success">{{Session::get('success_logOut')}}</span>
+@endif
 <div class="log-w3">
     <div class="w3layouts-main">
-        @if(\Illuminate\Support\Facades\Session::has('errors'))
-            <div class="alert alert-danger">{{\Illuminate\Support\Facades\Session::get('errors')}}</div>
+        @if(Session::has('defeat_home_email'))
+            <p class="alert alert-danger" style="color: red" role="alert">{{Session::get('defeat_home_email')}}</p>
         @endif
-        @if(\Illuminate\Support\Facades\Session::has('thanhCong'))
-            <div class="alert alert-success">{{Session::get('thanhCong')}}</div>
+        @if(Session::has('defeat_home_password'))
+            <p class="alert alert-danger" style="color: red" role="alert">{{Session::get('defeat_home_password')}}</p>
         @endif
         <h2>Sign In Now</h2>
         <form action="{{route('admin.login')}}" method="post">
             @csrf
-            <input type="email" class="ggg" name="email" placeholder="E-MAIL" required="">
-            <input type="password" class="ggg" name="password" placeholder="PASSWORD" required="">
+            <input type="email" class="vanh" name="email" placeholder="E-MAIL" required="">
+
+            <input type="password" class="vanh" name="password" placeholder="PASSWORD" required="">
+
             <span><input type="checkbox"/>Remember Me</span>
             <h6><a href="#">Forgot Password?</a></h6>
             <div class="clearfix"></div>
-            <input type="submit" value="Sign In" name="login">
+            <input type="submit" value="Sign In">
         </form>
         <p>Don't Have an Account ?<a href="{{route('admin.showRegister')}}">Create an account</a></p>
     </div>

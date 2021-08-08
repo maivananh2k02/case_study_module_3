@@ -16,8 +16,6 @@ class CartController extends Controller
         $data = $request->all();
         $session_id = substr(md5(microtime()), rand(0, 26), 5);
         $cart = Session::get('cart');
-//        print_r($cart);
-//        die();
         if ($cart) {
             $check = 0;
             foreach ($cart as $key => $value) {
@@ -69,7 +67,6 @@ class CartController extends Controller
         if ($cart) {
             foreach ($cart as $item => $value) {
                 if ($value['session_id'] == $id) {
-//                    dd($value['session_id']);
                     unset($cart[$item]);
                 }
             }
@@ -101,7 +98,6 @@ class CartController extends Controller
     {
         $cart = Session::get('cart');
         if ($cart) {
-//            Session::destroy();
             Session::forget('cart');
             return redirect()->back()->with('message', 'thanh cong');
         }

@@ -35,15 +35,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script src="backend/js/raphael-min.js"></script>
     <script src="backend/js/morris.js"></script>
 </head>
-<body>
 
 <!--header start-->
 <header class="header fixed-top clearfix">
     <!--logo start-->
     <div class="brand">
-        <a href="index.html" class="logo">
-            VISITORS
-        </a>
+        <a href="/home"> <img alt="logo-murad" src="uploads/product/vien-chong-nang-murad-logo-2.jpg" style="height: 80px;width: 240px"></a>
+
         <div class="sidebar-toggle-box">
             <div class="fa fa-bars"></div>
         </div>
@@ -66,7 +64,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <ul class="dropdown-menu extended logout">
                     <li><a href="/admin/proFile"><i class=" fa fa-suitcase"></i>Profile</a></li>
                     <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
-                    <li><a href="/admin"><i class="fa fa-key"></i> Log Out</a></li>
+                    <li><a href="{{route('admin.logOut')}}"><i class="fa fa-key"></i> Log Out</a></li>
                 </ul>
             </li>
         </ul>
@@ -238,6 +236,5 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         });
     </script>
     <!-- //calendar -->
-</body>
-</html>
+    </section>
 

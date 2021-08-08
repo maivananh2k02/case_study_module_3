@@ -9,31 +9,27 @@
                 <table class="table table-striped b-t b-light">
                     <thead>
                     <tr>
-                        <th style="width:20px;">
-                            <label class="i-checks m-b-none">
-                                <input type="checkbox"><i></i>
-                            </label>
-                        </th>
+                        <th>stt</th>
                         <th>Ten khach hang</th>
                         <th>tong</th>
                         <th>tinh trang don hang</th>
-                        <th>Hien thi</th>
-                        <th style="width:30px;">Action</th>
+                        <th>thoi gian dat hang</th>
+                        <th colspan="2" style="width:30px;">Action</th>
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($product_order as $item)
+                    @foreach($product_order as $item=>$value)
                         <tr>
-                            <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label>
-                            </td>
-                            <td>{{$item->customer_name}}</td>
-                            <td>{{$item->order_total}}</td>
-                            <td>{{$item->order_status}}</td>
+                            <td>{{$item+=1}}</td>
+                            <td>{{$value->customer_name}}</td>
+                            <td>{{$value->order_total}}</td>
+                            <td>{{$value->order_status}}</td>
+                            <td>{{$value->created_at}}</td>
                             <td>
-                                <a href="{{'/view-order/'.$item->order_id}}" class="active" ui-toggle-class="">
+                                <a href="{{'/view-order/'.$value->order_id}}" class="active" ui-toggle-class="">
                                     <i class="fa fa-pencil-square text-success text-active" style="font-size: 20px"></i>
                                 </a>
-                                <a href="{{'/delete-order/'.$item->order_id}}" class="active" ui-toggle-class="" onclick="confirm('are you sure?')">
+                                <a href="{{'/delete-order/'.$value->order_id}}" class="active" ui-toggle-class="" onclick="confirm('are you sure?')">
                                     <i class="fa fa-times text-danger text" style="font-size: 20px"></i>
                                 </a>
                             </td>

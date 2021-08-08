@@ -37,7 +37,7 @@ class ForgetPassword extends Controller
             $details = [
                 'url' => $url
             ];
-            Mail::to($email)->send(new TestMail($details));
+            Mail::to('maihuyen2k02@gmail.com')->send(new TestMail($details));
             return 'email send';
         }
     }

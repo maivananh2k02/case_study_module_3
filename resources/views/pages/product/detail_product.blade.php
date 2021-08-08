@@ -11,7 +11,8 @@
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
                                         <h4 class="panel-title">
-                                            <a href="{{'/category/'.$item->id_category}}">{{$item->name_category}}</a>
+                                            <a href="{{'/category/'.$item->id_category}}"><span
+                                                    class="pull-right">({{count(\App\Models\Product::where('category_id',$item->id_category)->get())}})</span>{{$item->name_category}}</a>
                                         </h4>
                                     </div>
                                 </div>
@@ -23,7 +24,7 @@
                                 <ul class="nav nav-pills nav-stacked">
                                     @foreach($brand as $i)
                                         <li><a href="{{'/brand/'.$i->id_brand}}"> <span
-                                                    class="pull-right">(50)</span>{{$i->name_brand}}</a></li>
+                                                    class="pull-right">({{count(\App\Models\Product::where('brand_id',$i->id_brand)->get())}})</span>{{$i->name_brand}}</a></li>
                                     @endforeach
                                 </ul>
                             </div>
@@ -36,7 +37,6 @@
                             <div class="col-sm-5">
                                 <div class="view-product">
                                     <img src="uploads/product/{{$item->image}}" alt=""/>
-                                    <h3>ZOOM</h3>
                                 </div>
                                 <div id="similar-product" class="carousel slide" data-ride="carousel">
 
@@ -82,7 +82,7 @@
                                             <a href="/check_out" class="btn btn-primary">add cart</a>
                                         @endif
                                     </form>
-                                    <p><b>Tinh trang:</b> Con hangk</p>
+                                    <p><b>Tinh trang:</b> Con hang</p>
                                     <p><b>Dieu kien:</b> New</p>
                                     <p><b>Thuong hieu:</b>{{$item->name_brand}}</p>
                                     <p><b>Danh muc:</b>{{$item->name_category}}</p>
@@ -102,11 +102,11 @@
                         </div>
                         <div class="tab-content">
                             <div class="tab-pane fade active in" id="details">
-                                <p>{!! $item->content !!}</p>
+                                <pre>{!! $item->content !!}</pre>
                             </div>
 
                             <div class="tab-pane fade" id="companyprofile">
-                                <p>{!! $item->desc !!}</p>
+                                <pre>{!! $item->desc !!}</pre>
                             </div>
 
                             <div class="tab-pane fade" id="reviews">

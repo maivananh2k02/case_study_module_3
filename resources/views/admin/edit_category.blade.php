@@ -8,7 +8,7 @@
                 </header>
                 <div class="panel-body">
                     <div class="position-center">
-                        <form role="form" action="{{'/update/'.$showCategory->id}}" method="post">
+                        <form role="form" action="{{'/update/'.$showCategory->id_category}}" method="post">
                             @csrf
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Loai San Pham</label>

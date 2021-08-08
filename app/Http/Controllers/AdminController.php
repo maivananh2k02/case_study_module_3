@@ -17,11 +17,16 @@ class AdminController extends Controller
 
     public function home()
     {
-        return view('admin.home');
+        if (Session::get('admin_id')) {
+            return view('admin.home');
+        } else {
+            return redirect()->route('login');
+        }
     }
 
     public function login(Request $request): \Illuminate\Http\RedirectResponse
     {
+
         $this->validate($request,
             [
                 'email' => 'required|email',
@@ -42,14 +47,12 @@ class AdminController extends Controller
                 Session::put('email', $checkLogin->email);
                 Session::put('gender', $checkLogin->gender);
                 Session::put('admin_id', $checkLogin->id);
-                return redirect()->route('admin.home');
+                return redirect()->route('admin.home')->with('success_home', 'Đăng nhập thành công');
             } else {
-
-                return redirect()->back()->with('errors', 'dang nhap k thanh cong do sai password');
+                return redirect()->back()->with('defeat_home_password', 'Đăng nhập thất bại do sai mật khẩu');
             }
         } else {
-            Session::put('errors', 'dang nhap k thanh cong do sai email');
-            return redirect()->back();
+            return redirect()->back()->with('defeat_home_email', 'Đăng nhập thất bại do sai email');
         }
     }
 
@@ -84,17 +87,21 @@ class AdminController extends Controller
         $admin->email = $request->email;
         $admin->password = Hash::make($request->password);
         $admin->save();
-        return redirect()->route('login')->with('thanhCong', 'tao tai khoan thanh cong');
+        return redirect()->route('login')->with('success_register', 'Tạo tài khoản thành công');
     }
 
     public function logOut()
     {
-        Session::get('admin_id', null);
-        return redirect()->route('admin.login');
+        Session::forget('admin_id');
+        return redirect()->route('login')->with('success_logOut', 'Đăng xuất thành công');
     }
 
     public function showProfile()
     {
-        return view('admin.proFile');
+        if (Session::get('admin_id')) {
+            return view('admin.proFile');
+        } else {
+            return redirect()->route('login');
+        }
     }
 }

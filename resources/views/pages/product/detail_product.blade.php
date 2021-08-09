@@ -43,9 +43,9 @@
                                     <!-- Wrapper for slides -->
                                     <div class="carousel-inner">
                                         <div class="item active">
-                                            <a href=""><img src="{{'frontend/images/similar1.jpg'}}" alt=""></a>
-                                            <a href=""><img src="{{'frontend/images/similar2.jpg'}}" alt=""></a>
-                                            <a href=""><img src="{{'frontend/images/similar3.jpg'}}" alt=""></a>
+                                            <a href=""><img src="{{'uploads/product/0.jpg'}}" style="width: 90px;height: 100px" alt=""></a>
+                                            <a href=""><img src="{{'uploads/product/1.jpg'}}" style="width: 90px;height: 100px" alt=""></a>
+                                            <a href=""><img src="{{'uploads/product/2.jpg'}}" style="width: 90px;height: 100px" alt=""></a>
                                         </div>
                                     </div>
 

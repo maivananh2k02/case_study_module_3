@@ -25,6 +25,7 @@ class ProductController extends Controller
             ->get();
 
         return view('admin.show_product', compact('product'));
+//        {{product.name_category}}
     }
 
     public function saveProduct(Request $request)

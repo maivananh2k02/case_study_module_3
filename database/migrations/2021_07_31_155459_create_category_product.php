@@ -14,10 +14,10 @@ class CreateCategoryProduct extends Migration
     public function up()
     {
         Schema::create('category_product', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->text('desc');
-            $table->integer('status');
+            $table->bigIncrements('id_category');
+            $table->string('name_category');
+            $table->text('desc_category');
+            $table->integer('status_category');
             $table->timestamps();
         });
     }

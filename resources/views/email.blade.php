@@ -8,6 +8,6 @@
     <title>Document</title>
 </head>
 <body>
-<a href="{{$details['url']}}">abc</a>
+<a href="{{$details['url']}}">Link change password shop with your</a>
 </body>
 </html>

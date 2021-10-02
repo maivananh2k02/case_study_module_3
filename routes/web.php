@@ -104,6 +104,9 @@ Route::get('/view-order/{id}',[CheckLogOutController::class,'view_order']);
 Route::get('/delete-order/{id}',[CheckLogOutController::class,'deletePayment']);
 
 
+//Authentication roles
+Route::get('/register-auth',[AuthController::class,'register-auth']);
+
 //phan quyen.
 Route::get('/author',[AuthorController::class,'index']);
 Route::get('/user',[AuthorController::class,'create'])->name('users.create');

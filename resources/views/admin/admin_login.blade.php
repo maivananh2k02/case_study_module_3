@@ -53,6 +53,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="clearfix"></div>
             <input type="submit" value="Sign In">
         </form>
+            <a href="/register-auth" class="btn btn-default">Dang ki Auth</a>
         <p>Don't Have an Account ?<a href="{{route('admin.showRegister')}}">Create an account</a></p>
     </div>
 </div>

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBrandTable extends Migration
+class CreateTablePermissionRole extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateBrandTable extends Migration
      */
     public function up()
     {
-        Schema::create('brands', function (Blueprint $table) {
-            $table->bigIncrements('id_brand');
-            $table->string('name_brand');
-            $table->text('desc_brand');
-            $table->integer('status_brand');
+        Schema::create('permission_role', function (Blueprint $table) {
+            $table->id();
+            $table->integer('role_id');
+            $table->integer('permission_id');
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ class CreateBrandTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('brands');
+        Schema::dropIfExists('premission_role');
     }
 }

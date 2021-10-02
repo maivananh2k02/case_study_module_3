@@ -53,7 +53,8 @@
                                         </div>
                                     </td>
                                     <td class="cart_total">
-                                        <p class="cart_total_price">{{number_format($total=$value['price']*$value['qty'])}} VND</p>
+                                        <p class="cart_total_price">{{number_format($total=$value['price']*$value['qty'])}}
+                                            VND</p>
                                     </td>
                                     <td class="cart_delete">
                                         <a class="cart_quantity_delete" href="{{'/delete_cart/'.$value['session_id']}}"><i
@@ -93,19 +94,15 @@
                                     <a class="btn btn-default check_out" href="/check_out">Thanh toan</a>
                                 @endif
                                 @if(isset($result))
-                                {{Session::put('cart_result',$result)}}
-
+                                    {{Session::put('cart_result',$result)}}
                                 @endif
                             </div>
                         </div>
                     </div>
                 </div>
-            </section><!--/#do_action-->
-            </tbody>
+            </section>
             @endif
             @endif
         </div>
         <!--/#cart_items-->
-
-
 @endsection

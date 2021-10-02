@@ -1,13 +1,13 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CheckLogOutController;
 use App\Http\Controllers\ForgetPassword;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\MailController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -106,4 +106,12 @@ Route::get('/delete-order/{id}',[CheckLogOutController::class,'deletePayment']);
 
 //Authentication roles
 Route::get('/register-auth',[AuthController::class,'register-auth']);
+
+//phan quyen.
+Route::get('/author',[AuthorController::class,'index']);
+Route::get('/user',[AuthorController::class,'create'])->name('users.create');
+Route::post('/store',[AuthorController::class,'store'])->name('users.store');
+Route::get('/edit_user/{id}',[AuthorController::class,'edit'])->name('users.edit');
+Route::post('/update_user/{id}',[AuthorController::class,'update'])->name('users.update');
+
 

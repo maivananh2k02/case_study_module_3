@@ -14,10 +14,11 @@ class CreateTransportsTable extends Migration
     public function up()
     {
         Schema::create('transports', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id_transport');
             $table->string('transport_name');
             $table->string('transport_email');
             $table->string('transport_address');
+            $table->text('transport_note');
             $table->integer('customer_id');
             $table->string('transport_phone');
 

@@ -71,6 +71,7 @@ class CheckLogOutController extends Controller
             $transport->transport_email = $request->email;
             $transport->transport_note = $request->note;
             $transport->transport_phone = $request->phone;
+            $transport->customer_id = Session::get('customer_id');
             $transport->transport_address = $request->address;
             $transport->save();
             Session::put('transport_id', $transport->id);
